@@ -41,12 +41,11 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
     nextStep();
   };
 
-  let Confirmation = () => (order.customer ? (
+  let Confirmation = () => ((1 === 1) ? (
     <>
       <div>
-        <Typography variant="h5">Thank you for your purchase, {order.customer.firstname} {order.customer.lastname}!</Typography>
+        <Typography variant="h5">Thank you for your purchase!</Typography>
         <Divider className={classes.divider} />
-        <Typography variant="subtitle2">Order ref: {order.customer_reference}</Typography>
       </div>
       <br />
       <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
@@ -57,6 +56,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
     </div>
   ));
 
+  /*
   if (error) {
     Confirmation = () => (
       <>
@@ -66,6 +66,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
       </>
     );
   }
+  */
 
   const Form = () => (activeStep === 0
     ? <AddressForm checkoutToken={checkoutToken} nextStep={nextStep} setShippingData={setShippingData} test={test} />
